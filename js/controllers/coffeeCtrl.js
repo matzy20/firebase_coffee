@@ -6,7 +6,15 @@
  * - retrieves and persists the model via the $firebaseArray service
  * - exposes the model to the template and provides event handlers
  */
-coffeemvc.controller('CoffeeCtrl', function CoffeeCtrl($scope, $location, $firebaseArray) {
+coffeemvc.controller('CoffeeCtrl', [
+		'$scope',
+		'$routeParams',
+		'$location',
+		'$firebaseArray',
+
+ function CoffeeCtrl($scope, $routeParams, $location, $firebaseArray) {
+
+
 	var url = 'https://brilliant-fire-914.firebaseio.com/';
 	var fireRef = new Firebase(url);
 
@@ -90,4 +98,10 @@ coffeemvc.controller('CoffeeCtrl', function CoffeeCtrl($scope, $location, $fireb
 		$location.path('/');
 	}
 	$scope.location = $location;
-});
+
+		
+    
+
+
+}
+]);

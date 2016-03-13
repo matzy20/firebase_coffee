@@ -7,7 +7,7 @@
  *
  * @type {angular.Module}
  */
-var coffeemvc = angular.module('coffeemvc', ['firebase']);
+var coffeemvc = angular.module('coffeemvc', ['ngRoute', 'firebase']);
 
 coffeemvc.filter('todoFilter', function ($location) {
 
@@ -23,10 +23,34 @@ coffeemvc.filter('todoFilter', function ($location) {
 				if (todo.completed) {
 					filtered[id] = todo;
 				}
-			} else {
+			} else if (path === '/ourshop') {
+				console.log('test');
+			} else if (path === '/feines') {
+				console.log('test');
+			}  
+
+			 else {
 				filtered[id] = todo;
 			}
 		});
 		return filtered;
 	};
 });
+
+
+coffeemvc.config(function ($routeProvider) {
+		//set up config
+
+
+		//routes
+		$routeProvider
+			.when('/ourshop', {
+				templateUrl: '/templates/introPage.html',
+				controller: 'coffeemvc'
+			})
+			.when('/feines', {
+				templateUrl: '/templates/feinesGallery.html',
+				controller: 'coffeemvc'
+			});
+			
+	});

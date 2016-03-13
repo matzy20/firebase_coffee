@@ -3,11 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>Coffeine • Community</title>
-    <link rel="stylesheet" href="node_modules/coffeemvc-common/base.css">
+    
     <link rel="stylesheet" href="node_modules/coffeemvc-app-css/index.css">
     <style>[ng-cloak] { display: none; }</style>
   </head>
   <body>
+
+
+
+  <!-- routes -->
+  <div ng-view></div>
+
+<!-- from controller -->
+<!-- <div ng-controller="MyController"></div> -->
+
+
+
+
     <section id="todoapp" ng-controller="CoffeeCtrl">
       <header id="header">
         <h1>Coffeine</h1>
@@ -38,26 +50,39 @@
         </span>
         <ul id="filters">
           <li>
-            <a ng-class="{selected: location.path() == '/'} " href="#/">All</a>
+            <a ng-class="{selected: location.path() == '/'} " href="#/">Feines</a>
           </li>
           <li>
-            <a ng-class="{selected: location.path() == '/active'}" href="#/active">Active</a>
-          </li>
-          <li>
-            <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">Completed</a>
+            <a ng-class="{selected: location.path() == '/completed'}" href="#/completed">You Win</a>
           </li>
         </ul>
-        <button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear completed</button>
+        <button id="clear-completed" ng-click="clearCompletedTodos()" ng-show="completedCount">Clear Comments</button>
       </footer>
     </section>
     <footer id="info">
-      <p>Social brand Loyalty app of our community for Local hawaiian coffee Shops</p>
-      <p>http-server to get on <a href="http://localhost:8080">Coffeine</a></p>
+      <p>Social brand Loyalty app for our community for Local hawaiian coffee Shops</p>
+      
+
+
+      <div class="padding">
+        <body ng-app="myApp">
+
+        <!-- <a ng-class="{selected: location.path() == '/ourshop'}" href="templates/introPage.html">US</a> -->
+        <a ng-class="{selected: location.path() == '/feines'}" href="templates/feinesGallery.html">Our Feines</a>
+ <!--          <a href="/#/ourshop" class="btn btn-info" role="button">Us</a>
+          <a href="/#/feines" class="btn btn-info" role="button">Our Feines</a> -->
+
+
+
+      </div>
+  
+  <!-- routes -->
+  <div ng-view></div>
     </footer>
     <script src="//cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
-    <script src="node_modules/todomvc-common/base.js"></script>
     <script src="node_modules/angular/angular.js"></script>
     <script src="node_modules/angularfire/dist/angularfire.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/coffeeCtrl.js"></script>
     <script src="js/directives/coffeeFocus.js"></script>
